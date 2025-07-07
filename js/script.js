@@ -33,8 +33,10 @@ function mostraAlternativas() {
 }
 
 function respostaSelecionada(opcaoSelecionada) {
-    const afirmacoes = aleatorio(opcaoSelecionada.afirmacao);
-    historiaFinal += afirmacoes + " ";
+    if (opcaoSelecionada.afirmacao) {
+        const afirmacoes = aleatorio(opcaoSelecionada.afirmacao);
+        historiaFinal += afirmacoes + " ";
+    }
     if (opcaoSelecionada.proxima !== undefined) {
         atual = opcaoSelecionada.proxima;
     } else {
@@ -49,6 +51,9 @@ function mostraResultado() {
     textoResultado.textContent = historiaFinal;
     caixaAlternativas.textContent = "";
     caixaResultado.classList.add("mostrar");
+    
+    // Remover event listener anterior para evitar múltiplos cliques
+    botaoJogarNovamente.removeEventListener("click", jogaNovamente);
     botaoJogarNovamente.addEventListener("click", jogaNovamente);
 }
 
@@ -65,5 +70,6 @@ function substituiNome() {
     }
 }
 
+// Chamar a função para substituir o nome antes de mostrar a primeira pergunta
 substituiNome();
 mostraPergunta();
