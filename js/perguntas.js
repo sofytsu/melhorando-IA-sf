@@ -1,3 +1,10 @@
+export const nomes = ["Sofia", "Bruno", "Maria Eduarda", "Maria Luiza", "Samira", "Silvia", "Jhonatan"];
+
+export function aleatorio(lista) {
+    const posicao = Math.floor(Math.random() * lista.length);
+    return lista[posicao];
+}
+
 export const perguntas = [
     {
         enunciado: "Após assistir a um filme que apresenta uma nova tecnologia de IA, você reflete sobre o impacto disso na sociedade. Qual é o seu primeiro pensamento?",
@@ -88,20 +95,14 @@ export const perguntas = [
     {
         enunciado: "Após um debate sobre o impacto da IA no cinema, como você se posiciona?",
         alternativas: [
-            const nomes = ["Sofia", "Bruno", "Maria Eduarda", "Maria Luiza", "Samira", "Silvia", "Jhonatan"];
-
-            export function aleatorio (lista){
-                const posicao = Math.floor(Math.random()* lista.length);
-                return lista[posicao];
-            }
-            
-            export const nome = aleatorio(nomes)          {
+            {
                 texto: "Defendo que a IA pode criar novas oportunidades e melhorar a criatividade.",
                 afirmacao: [
                     "Acredito que a IA pode ajudar a contar histórias de maneiras inovadoras.",
                     "Estou envolvido em projetos que utilizam IA para melhorar a produção cinematográfica."
                 ],
                 proxima: 7,
+                nome: aleatorio(nomes) // Adicionando o nome aleatório aqui
             },
             {
                 texto: "Preocupo-me com os trabalhadores que podem ser substituídos por máquinas.",
@@ -110,6 +111,7 @@ export const perguntas = [
                     "Busco maneiras de garantir que a tecnologia beneficie a todos, não apenas a alguns."
                 ],
                 proxima: 7,
+                nome: aleatorio(nomes) // Adicionando o nome aleatório aqui
             },
         ]
     },
